@@ -1,9 +1,15 @@
+:root {
+    --bodybg:rgb(23, 29, 37);
+}
 a {
     text-decoration: none;
   }
   /* a:hover {
   
   } */
-  html {
+html {
   scroll-padding-top: 70px; /* height of sticky header */
   }
+body {
+    background-color: var(--bodybg);
+}
