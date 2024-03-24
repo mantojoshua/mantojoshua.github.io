@@ -4,9 +4,9 @@
 a {
     text-decoration: none;
   }
-  /* a:hover {
-  
-  } */
+  a:hover {
+    text-decoration: underline;
+  }
 html {
   scroll-padding-top: 70px; /* height of sticky header */
   }
