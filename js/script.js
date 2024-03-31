@@ -3,9 +3,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
   typeEffect("Hello, I'm Joshua Manto", element);
 
   const backToTopButton = document.getElementById('backtotop');
+
   if (backToTopButton) {
+    backToTopButton.style.display = 'none'; // Hide the button initially
+
     backToTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) { // Show the button if the page is scrolled down by 100px or more
+        backToTopButton.style.display = 'block';
+      } else { // Hide the button if the page is scrolled back to the top
+        backToTopButton.style.display = 'none';
+      }
     });
   }
 });
