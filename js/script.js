@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
     });
   }
-});
+}); 
 
 function typeEffect(text, element) {
   let i = 0;
