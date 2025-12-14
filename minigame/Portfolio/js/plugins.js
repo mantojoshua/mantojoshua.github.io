@@ -5,6 +5,6 @@ var $plugins =
 {"name":"PluginCommonBase","status":false,"description":"Plugin Analysis Common Base","parameters":{}},
 {"name":"RegionBase","status":false,"description":"Region Base Plugin","parameters":{"regionList":"[]","terrainTagList":"[]"}},
 {"name":"UnpassableRegions","status":false,"description":"Makes certain Region IDs unpassable by the player.","parameters":{"Unpassable Regions":"[1]"}},
-{"name":"PassableAndUnpassableRegions","status":true,"description":"Allows specific Region IDs to be either passable or unpassable for the player, overriding default tile passability rules.","parameters":{"Unpassable Regions":"[1]","Passable Regions":"[2]"}},
+{"name":"PassableAndUnpassableRegions","status":false,"description":"Allows specific Region IDs to be either passable or unpassable for the player, overriding default tile passability rules.","parameters":{"Unpassable Regions":"[1]","Passable Regions":"[2]"}},
 {"name":"SkipTitleScreen","status":true,"description":"Skips title screen and goes straight to the map.","parameters":{}}
 ];

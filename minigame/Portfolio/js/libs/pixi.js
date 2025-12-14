@@ -37773,7 +37773,7 @@ var PIXI = (function (exports) {
 	            filterManager.returnFilterTexture(renderTarget);
 	        }
 	    };
-	    Object.defineProperty(BlurFilterPass.prototype, "blur-sm", {
+	    Object.defineProperty(BlurFilterPass.prototype, "blur", {
 	        /**
 	         * Sets the strength of both the blur.
 	         *
@@ -37874,7 +37874,7 @@ var PIXI = (function (exports) {
 	            this.padding = Math.max(Math.abs(this.blurXFilter.strength), Math.abs(this.blurYFilter.strength)) * 2;
 	        }
 	    };
-	    Object.defineProperty(BlurFilter.prototype, "blur-sm", {
+	    Object.defineProperty(BlurFilter.prototype, "blur", {
 	        /**
 	         * Sets the strength of both the blurX and blurY properties simultaneously
 	         *
