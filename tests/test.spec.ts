@@ -10,6 +10,4 @@ await page.getByRole('link', { name: '🔧Skills' }).click();
 await page.getByRole('button', { name: 'Let\'s Connect' }).click();
 await page.getByRole('link', { name: '🏠Home' }).click();
 
-test.fail();
-
 });
