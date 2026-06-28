@@ -6,17 +6,17 @@ test('Verify that all the navigation links are working', async ({ page }) => {
 
     await page.goto(baseUrl);
     await page.getByRole('link', { name: '🏠Home' }).click();
-    await expect(page).toHaveURL(/#home$/);
+    await expect(page.locator('#home')).toBeInViewport();
     await page.getByRole('link', { name: '💻Work' }).click();
-    await expect(page).toHaveURL(/#work$/);
+    await expect(page.locator('#work')).toBeInViewport();
     await page.getByRole('link', { name: '🏆Certificates' }).click();
-    await expect(page).toHaveURL(/#certificate$/);
+    await expect(page.locator('#certificate')).toBeInViewport();
     await page.getByRole('link', { name: '🔧Skills' }).click();
-    await expect(page).toHaveURL(/#skills$/);
+    await expect(page.locator('#skills')).toBeInViewport();    
     await page.getByRole('button', { name: 'Let\'s Connect' }).click();
-    await expect(page).toHaveURL(/#contact$/);
+    await expect(page.locator('#contact')).toBeInViewport();   
     await page.getByRole('link', { name: '🏠Home' }).click();
-    await expect(page).toHaveURL(/#home$/);
+    await expect(page.locator('#home')).toBeInViewport();
 
 });
 
