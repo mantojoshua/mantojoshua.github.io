@@ -6,11 +6,17 @@ test('Verify that all the navigation links are working', async ({ page }) => {
 
     await page.goto(baseUrl);
     await page.getByRole('link', { name: '🏠Home' }).click();
+    await expect(page).toHaveURL(/#home$/);
     await page.getByRole('link', { name: '💻Work' }).click();
+    await expect(page).toHaveURL(/#work$/);
     await page.getByRole('link', { name: '🏆Certificates' }).click();
+    await expect(page).toHaveURL(/#certificate$/);
     await page.getByRole('link', { name: '🔧Skills' }).click();
+    await expect(page).toHaveURL(/#skills$/);
     await page.getByRole('button', { name: 'Let\'s Connect' }).click();
+    await expect(page).toHaveURL(/#contact$/);
     await page.getByRole('link', { name: '🏠Home' }).click();
+    await expect(page).toHaveURL(/#home$/);
 
 });
 
