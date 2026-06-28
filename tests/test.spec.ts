@@ -1,10 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-let baseUrl:string = 'https://mantojoshua.github.io/'
-
 test('Verify that all the navigation links are working', async ({ page }) => {
 
-    await page.goto(baseUrl);
+    await page.goto('/');
     await page.getByRole('link', { name: '🏠Home' }).click();
     await expect(page.locator('#home')).toBeInViewport();
     await page.getByRole('link', { name: '💻Work' }).click();
