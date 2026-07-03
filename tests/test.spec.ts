@@ -15,7 +15,7 @@ test('Verify that all the navigation links are working', async ({ page }) => {
     await expect(page.locator('#contact')).toBeInViewport();   
     await page.getByRole('link', { name: '🏠Home' }).click();
     await expect(page.locator('#home')).toBeInViewport();
-
+    test.fail()
 });
 
 test('Verify that the Work Experience is visible', async ({ page }) => {
