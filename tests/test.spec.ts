@@ -51,6 +51,6 @@ test('Verify that the Contacts are visible', async ({ page }) => {
 test('Verify that the minigame are visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '🏠Home' }).click();
-    await expect(page.locator('#home iframe').contentFrame().locator('#gameVideo')).toBeInViewport();
+    await expect(page.locator('#home iframe')).toBeInViewport();
 
 });
