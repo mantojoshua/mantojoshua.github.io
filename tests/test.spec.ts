@@ -23,34 +23,34 @@ test('Verify that all the navigation links are working', async ({ page }) => {
 test('Verify that the Work Experience is visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '💻Work' }).click()
-    await expect(page.getByText("Work Experience")).toBeVisible();
+    await expect(page.getByText("Work Experience")).toBeInViewport();
 
 });
 
 test('Verify that the Certificates are visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '🏆Certificates' }).click()
-    await expect(page.locator('div').filter({ hasText: '🏆Certificates' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '🏆Certificates' })).toBeInViewport();
 
 });
 
 test('Verify that the Skills are visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '🔧Skills' }).click();
-    await expect(page.locator('div').filter({ hasText: '🔧Skills' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '🔧Skills' })).toBeInViewport();
 
 });
 
 test('Verify that the Contacts are visible', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Let\'s Connect' }).click();
-    await expect(page.getByRole('heading', { name: '📞Contact Me' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: '📞Contact Me' })).toBeInViewport();
 
 });
 
 test('Verify that the minigame are visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '🏠Home' }).click();
-    await expect(page.locator('embed').contentFrame().locator('#gameVideo')).toBeVisible();
+    await expect(page.locator('#home iframe').contentFrame().locator('#gameVideo')).toBeInViewport();
 
 });
