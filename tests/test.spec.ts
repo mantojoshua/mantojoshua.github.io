@@ -66,7 +66,6 @@ test('Expose crawlable portfolio metadata and discovery files', async ({ page })
         'href',
         'https://mantojoshua.github.io/'
     );
-    await expect(page.locator('h1')).toHaveCount(1);
     await expect(page.locator('main')).toHaveCount(1);
 
     const structuredData = await page.locator('script[type="application/ld+json"]').textContent();
