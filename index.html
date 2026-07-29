@@ -11,7 +11,7 @@
     <title>Joshua Manto | Portfolio</title>
 
     <!-- <link rel="manifest" href="manifest.json" /> -->
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 
     <link href="./src/output.css" rel="stylesheet" />
 
@@ -22,48 +22,68 @@
 
 <!--#region NAVIGATION BAR -->
   <nav
-    class="bg-slate-950 borderl p-4 sticky top-0 z-50 border-slate-600 shadow-md"
+    class="bg-slate-950 border-b p-4 sticky top-0 z-50 border-slate-600 shadow-md"
   >
     <div class="container mx-auto flex justify-between items-center">
-  
+
       <div>
-        <a href="#" class="text-white text-xl font-bold ">Joshua Manto</a>
+        <a href="#" class="text-white text-xl font-bold">Joshua Manto</a>
       </div>
-      <!--#region Navigation Links -->
+      <!--#region Desktop Navigation Links -->
       <div class="hidden md:block">
         <ul class="flex space-x-4">
           <li>
             <a href="#home" class="text-sky-500 font-semibold hover:text-amber-400">🏠Home</a>
           </li>
-          <li >
-            <a href="#work" class="text-sky-500 font-semibold hover:text-amber-400">
-              💻Work
-            </a>
+          <li>
+            <a href="#work" class="text-sky-500 font-semibold hover:text-amber-400">💻Work</a>
           </li>
-          <li >
-            <a href="#certificate" class="text-sky-500 font-semibold hover:text-amber-400">
-              🏆Certificates
-            </a>
+          <li>
+            <a href="#certificate" class="text-sky-500 font-semibold hover:text-amber-400">🏆Certificates</a>
           </li>
-          <li >
-            <a href="#skills" class="text-sky-500 font-semibold hover:text-amber-400">
-              🔧Skills
-            </a>
+          <li>
+            <a href="#skills" class="text-sky-500 font-semibold hover:text-amber-400">🔧Skills</a>
           </li>
-          <!-- <li>
-            <a href="#contact" class="text-sky-500 font-semibold hover:text-amber-400"
-              >📞Contact Me</a
-            >
-          </li> -->
           <li>
             <a href="#contact"><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</button></a>
           </li>
-          <!-- <li>
-            <a href="files/Manto_Joshua_CV.pdf" download><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Download CV</button></a>
-          </li> -->
         </ul>
       </div>
       <!--#endregion -->
+
+      <!-- Hamburger button (mobile only) -->
+      <button
+        id="hamburger-btn"
+        class="md:hidden text-sky-500 focus:outline-none"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden container mx-auto mt-2">
+      <ul class="flex flex-col space-y-3 pb-2">
+        <li>
+          <a href="#home" class="block text-sky-500 font-semibold hover:text-amber-400">🏠Home</a>
+        </li>
+        <li>
+          <a href="#work" class="block text-sky-500 font-semibold hover:text-amber-400">💻Work</a>
+        </li>
+        <li>
+          <a href="#certificate" class="block text-sky-500 font-semibold hover:text-amber-400">🏆Certificates</a>
+        </li>
+        <li>
+          <a href="#skills" class="block text-sky-500 font-semibold hover:text-amber-400">🔧Skills</a>
+        </li>
+        <li>
+          <a href="#contact"><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</button></a>
+        </li>
+      </ul>
     </div>
   </nav>
   <!--#endregion -->
@@ -141,62 +161,14 @@ App Store Connect</li>
         <h3 class="text-2xl font-semibold text-center p-4">🏆Certificates</h3>
 
         <div class="flex space-x-4 bg-white rounded-md p-4">
-          <div
-            class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="89a9eed2-0ba8-4b22-a966-9fc2d1e2d7fa" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-          <div
-            class="mt-4"
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="5ec7ae1d-4155-4ea6-9240-336297337dc4"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <script
-            type="text/javascript"
-            async
-            src="//cdn.credly.com/assets/utilities/embed.js"
-          ></script>
-
-          <div
-            class="mt-4"
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="8aadb7aa-8540-47ac-bbeb-d4d19a37a8d6"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <script
-            type="text/javascript"
-            async
-            src="//cdn.credly.com/assets/utilities/embed.js"
-          ></script>
-
-          <div
-            class="mt-4"
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="22b5568f-65d6-44a2-be60-d3568068ecc1"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <script
-            type="text/javascript"
-            async
-            src="//cdn.credly.com/assets/utilities/embed.js"
-          ></script>
-
-          <div
-            class="mt-4"
-            data-iframe-width="150"
-            data-iframe-height="270"
-            data-share-badge-id="63d0eb25-247e-490b-8e90-e5a67f7f93ed"
-            data-share-badge-host="https://www.credly.com"
-          ></div>
-          <script
-            type="text/javascript"
-            async
-            src="//cdn.credly.com/assets/utilities/embed.js"
-          ></script>
-
-          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ce2dd645-94b4-4889-b1f0-b87ff21a32ea" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="89a9eed2-0ba8-4b22-a966-9fc2d1e2d7fa" data-share-badge-host="https://www.credly.com"></div>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="5ec7ae1d-4155-4ea6-9240-336297337dc4" data-share-badge-host="https://www.credly.com"></div>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="8aadb7aa-8540-47ac-bbeb-d4d19a37a8d6" data-share-badge-host="https://www.credly.com"></div>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="22b5568f-65d6-44a2-be60-d3568068ecc1" data-share-badge-host="https://www.credly.com"></div>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="63d0eb25-247e-490b-8e90-e5a67f7f93ed" data-share-badge-host="https://www.credly.com"></div>
+          <div class="mt-4" data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ce2dd645-94b4-4889-b1f0-b87ff21a32ea" data-share-badge-host="https://www.credly.com"></div>
         </div>
+        <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
       </div>
     </div>
     </div>
@@ -296,10 +268,10 @@ App Store Connect</li>
 <!--#endregion -->
 <div class="cf-turnstile" data-sitekey="0x4AAAAAAC-OFq2SF5hZmHlO"></div>
 
-</body>
 <script
   src="https://challenges.cloudflare.com/turnstile/v0/api.js"
   async
   defer
 ></script>
+</body>
 </html>
