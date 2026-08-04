@@ -46,9 +46,15 @@ test('Verify that the Certificates fit a mobile viewport', async ({ page }) => {
     expect(await certificateList.evaluate((element) => element.scrollWidth))
         .toBeLessThanOrEqual(await certificateList.evaluate((element) => element.clientWidth));
 
+    const workContentBottom = await page.locator('#work .shadow-md').evaluate((element) => element.getBoundingClientRect().bottom);
+    const certificateTop = await certificateSection.evaluate((element) => element.getBoundingClientRect().top);
     const certificateBottom = await certificateSection.evaluate((element) => element.getBoundingClientRect().bottom);
     const skillsTop = await page.locator('#skills').evaluate((element) => element.getBoundingClientRect().top);
+    const skillsContentBottom = await page.locator('#skills .card').evaluate((element) => element.getBoundingClientRect().bottom);
+    const contactTop = await page.locator('#contact').evaluate((element) => element.getBoundingClientRect().top);
+    expect(workContentBottom).toBeLessThanOrEqual(certificateTop);
     expect(certificateBottom).toBeLessThanOrEqual(skillsTop);
+    expect(skillsContentBottom).toBeLessThanOrEqual(contactTop);
 });
 
 test('Verify that the Skills are visible', async ({ page }) => {
