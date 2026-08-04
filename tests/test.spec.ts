@@ -35,6 +35,17 @@ test('Verify that the Certificates are visible', async ({ page }) => {
 
 });
 
+test('Verify that the Certificates fit a mobile viewport', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const certificateList = page.locator('#certificate [data-share-badge-id]').first().locator('..');
+    await certificateList.scrollIntoViewIfNeeded();
+
+    await expect(certificateList).toBeVisible();
+    expect(await certificateList.evaluate((element) => element.scrollWidth))
+        .toBeLessThanOrEqual(await certificateList.evaluate((element) => element.clientWidth));
+});
+
 test('Verify that the Skills are visible', async ({ page }) => {
 
     await page.getByRole('link', { name: '🔧Skills' }).click();
