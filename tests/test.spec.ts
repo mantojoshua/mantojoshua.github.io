@@ -7,31 +7,31 @@ test.beforeEach(async ({page}) => {
 
 test('Verify that all the navigation links are working', async ({ page }) => {
 
-    await page.getByRole('link', { name: '🏠Home' }).click({ force: true });
+    await page.getByRole('link', { name: 'Home' }).click({ force: true });
     await expect(page.locator('#home')).toBeInViewport();
-    await page.getByRole('link', { name: '💻Work' }).click({ force: true });
+    await page.getByRole('link', { name: 'Work' }).click({ force: true });
     await expect(page.locator('#work')).toBeInViewport();
-    await page.getByRole('link', { name: '🏆Certificates' }).click({ force: true });
+    await page.getByRole('link', { name: 'Certificates' }).click({ force: true });
     await expect(page.locator('#certificate')).toBeInViewport();
-    await page.getByRole('link', { name: '🔧Skills' }).click({ force: true });
+    await page.getByRole('link', { name: 'Skills' }).click({ force: true });
     await expect(page.locator('#skills')).toBeInViewport();    
     await page.getByRole('button', { name: 'Let\'s Connect' }).click({ force: true });
     await expect(page.locator('#contact')).toBeInViewport();   
-    await page.getByRole('link', { name: '🏠Home' }).click({ force: true });
+    await page.getByRole('link', { name: 'Home' }).click({ force: true });
     await expect(page.locator('#home')).toBeInViewport();
 });
 
 test('Verify that the Work Experience is visible', async ({ page }) => {
 
-    await page.getByRole('link', { name: '💻Work' }).click()
+    await page.getByRole('link', { name: 'Work' }).click()
     await expect(page.getByText("Work Experience")).toBeInViewport();
 
 });
 
 test('Verify that the Certificates are visible', async ({ page }) => {
 
-    await page.getByRole('link', { name: '🏆Certificates' }).click()
-    await expect(page.getByRole('heading', { name: '🏆Certificates' })).toBeInViewport();
+    await page.getByRole('link', { name: 'Certificates' }).click()
+    await expect(page.getByRole('heading', { name: 'Certificates' })).toBeInViewport();
 
 });
 
@@ -59,21 +59,21 @@ test('Verify that the Certificates fit a mobile viewport', async ({ page }) => {
 
 test('Verify that the Skills are visible', async ({ page }) => {
 
-    await page.getByRole('link', { name: '🔧Skills' }).click();
-    await expect(page.getByRole('heading', { name: '🔧Skills' })).toBeInViewport();
+    await page.getByRole('link', { name: 'Skills' }).click();
+    await expect(page.getByRole('heading', { name: 'Skills' })).toBeInViewport();
 
 });
 
 test('Verify that the Contacts are visible', async ({ page }) => {
 
     await page.getByRole('button', { name: 'Let\'s Connect' }).click({ force: true });
-    await expect(page.getByRole('heading', { name: '📞Contact Me' })).toBeInViewport();
+    await expect(page.getByRole('heading', { name: 'Contact Me' })).toBeInViewport();
 
 });
 
 test('Verify that the minigame are visible', async ({ page }) => {
 
-    await page.getByRole('link', { name: '🏠Home' }).click();
+    await page.getByRole('link', { name: 'Home' }).click();
     await expect(page.locator('#home iframe')).toBeInViewport();
 
 });
