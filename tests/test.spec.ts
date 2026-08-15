@@ -15,7 +15,7 @@ test('Verify that all the navigation links are working', async ({ page }) => {
     await expect(page.locator('#certificate')).toBeInViewport();
     await page.getByRole('link', { name: 'Skills' }).click({ force: true });
     await expect(page.locator('#skills')).toBeInViewport();    
-    await page.getByRole('button', { name: 'Let\'s Connect' }).click({ force: true });
+    await page.getByRole('link', { name: 'Let\'s Connect' }).click({ force: true });
     await expect(page.locator('#contact')).toBeInViewport();   
     await page.getByRole('link', { name: 'Home' }).click({ force: true });
     await expect(page.locator('#home')).toBeInViewport();
@@ -66,7 +66,7 @@ test('Verify that the Skills are visible', async ({ page }) => {
 
 test('Verify that the Contacts are visible', async ({ page }) => {
 
-    await page.getByRole('button', { name: 'Let\'s Connect' }).click({ force: true });
+    await page.getByRole('link', { name: 'Let\'s Connect' }).click({ force: true });
     await expect(page.getByRole('heading', { name: 'Contact Me' })).toBeInViewport();
 
 });
@@ -76,6 +76,33 @@ test('Verify that the minigame are visible', async ({ page }) => {
     await page.getByRole('link', { name: 'Home' }).click();
     await expect(page.locator('#home iframe')).toBeInViewport();
 
+});
+
+test('Verify that the mobile navigation closes after selecting a section', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    const menuButton = page.getByRole('button', { name: 'Toggle navigation menu' });
+    const mobileMenu = page.locator('#mobile-menu');
+
+    await menuButton.click();
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+    await expect(mobileMenu).toBeVisible();
+
+    await mobileMenu.getByRole('link', { name: 'Work' }).click();
+    await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+    await expect(mobileMenu).toBeHidden();
+});
+
+test('Verify that the portfolio remains usable on narrow screens', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+
+    await expect(page.locator('#home h1')).toHaveCount(0);
+    expect(await page.locator('a button').count()).toBe(0);
+    expect(await page.locator('button a').count()).toBe(0);
+
+    const documentWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    const viewportWidth = await page.evaluate(() => document.documentElement.clientWidth);
+    expect(documentWidth).toBeLessThanOrEqual(viewportWidth);
 });
 
 test('Expose crawlable portfolio metadata and discovery files', async ({ page }) => {
@@ -99,10 +126,11 @@ test('Expose crawlable portfolio metadata and discovery files', async ({ page })
         ]),
     });
 
-    const [robots, sitemap, minigame] = await Promise.all([
+    const [robots, sitemap, minigame, manifest] = await Promise.all([
         page.request.get('/robots.txt'),
         page.request.get('/sitemap.xml'),
         page.request.get('/minigame/Portfolio/index.html'),
+        page.request.get('/manifest.json'),
     ]);
     expect(robots.ok()).toBeTruthy();
     expect(await robots.text()).toContain('Sitemap: https://mantojoshua.github.io/sitemap.xml');
@@ -110,4 +138,10 @@ test('Expose crawlable portfolio metadata and discovery files', async ({ page })
     expect(await sitemap.text()).toContain('https://mantojoshua.github.io/');
     expect(minigame.ok()).toBeTruthy();
     expect(await minigame.text()).toContain('name="robots" content="noindex, follow"');
+    expect(manifest.ok()).toBeTruthy();
+    expect(await manifest.json()).toMatchObject({
+        name: 'Joshua Manto Portfolio',
+        theme_color: '#020617',
+        background_color: '#020617',
+    });
 });

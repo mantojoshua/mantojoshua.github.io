@@ -95,8 +95,17 @@
 
     <link href="./src/output.css" rel="stylesheet" />
 
-  <script>navigator.serviceWorker.register("service-worker.js")</script> 
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("service-worker.js").catch(function (error) {
+            console.error("Service worker registration failed:", error);
+          });
+        });
+      }
+    </script>
     <link rel="preconnect" href="https://challenges.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.credly.com" crossorigin />
   </head>
 <!--#endregion -->
 <body class="bg-slate-950">
@@ -184,11 +193,12 @@
 <!--#region NAVIGATION BAR -->
   <nav
     class="bg-slate-950 border-b p-4 sticky top-0 z-50 border-slate-600 shadow-md"
+    aria-label="Primary navigation"
   >
     <div class="container mx-auto flex justify-between items-center">
 
       <div>
-        <a href="#" class="text-white text-xl font-bold">Joshua Manto</a>
+        <a href="#home" class="text-white text-xl font-bold">Joshua Manto</a>
       </div>
       <!--#region Desktop Navigation Links -->
       <div class="hidden md:block">
@@ -218,7 +228,7 @@
             </a>
           </li>
           <li>
-            <a href="#contact"><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</button></a>
+            <a href="#contact" class="inline-block rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</a>
           </li>
         </ul>
       </div>
@@ -266,7 +276,7 @@
           </a>
         </li>
         <li>
-          <a href="#contact"><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</button></a>
+          <a href="#contact" class="inline-block rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Let's Connect</a>
         </li>
       </ul>
     </div>
@@ -274,12 +284,13 @@
   <!--#endregion -->
   <main>
 <!--#region HOME -->
-  <section id="home">
+  <section id="home" aria-label="Interactive portfolio">
     <div class="flex justify-center items-center h-screen">
         <iframe
   src="minigame/Portfolio/index.html"
   width="816"
   height="627"
+  class="w-full max-w-[816px]"
   loading="lazy"
   fetchpriority="low"
   title="Interactive portfolio minigame"
@@ -347,12 +358,12 @@
     <div class="flex min-h-screen items-center justify-center px-4 py-8">
       <div class="w-full max-w-5xl">
         <div class="card w-full rounded-xl p-4 shadow-md">
-        <h3 id="certificates-heading" class="p-4 text-center text-2xl font-semibold">
+        <h2 id="certificates-heading" class="p-4 text-center text-2xl font-semibold">
           <span class="flex items-center justify-center gap-2">
             <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-award"></use></svg>
             <span>Certificates</span>
           </span>
-        </h3>
+        </h2>
 
         <div class="flex flex-wrap justify-center gap-2 rounded-md bg-white p-4">
           <div class="flex h-[270px] w-[150px] shrink-0 justify-center">
@@ -514,8 +525,8 @@
 <!--#endregion -->
 <!--#region CONTACTS -->
   <section class=" text-sky-500" id="contact" aria-labelledby="contact-heading">
-    <div class="flex min-h-screen justify-center items-center">
-      <div class="p-4 shadow-md rounded-xl">
+    <div class="flex min-h-screen justify-center items-center px-4">
+      <div class="w-full max-w-5xl p-4 shadow-md rounded-xl">
         <h2 id="contact-heading" class="text-center text-light text-3xl font-bold p-4">
           <span class="flex items-center justify-center gap-2">
             <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-phone"></use></svg>
@@ -523,8 +534,8 @@
           </span>
         </h2>
 
-        <p class="text-2xl">
-          <span class="flex items-center gap-2">
+        <p class="text-lg sm:text-2xl">
+          <span class="flex flex-wrap items-center gap-2">
             <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
             <span>LinkedIn:</span>
             <a
@@ -535,17 +546,17 @@
             >
           </span>
         </p>
-        <p class="text-2xl">
-          <span class="flex items-center gap-2">
+        <p class="text-lg sm:text-2xl">
+          <span class="flex flex-wrap items-center gap-2">
             <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-mail"></use></svg>
             <span>Email:</span>
-            <a href="mailto:manto.joshua.ccs@gmail.com" target="_blank"
+            <a href="mailto:manto.joshua.ccs@gmail.com"
               ><u>manto.joshua.ccs@gmail.com</u></a
             >
           </span>
         </p>
-        <p class="text-2xl">
-          <span class="flex items-center gap-2">
+        <p class="text-lg sm:text-2xl">
+          <span class="flex flex-wrap items-center gap-2">
             <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-briefcase"></use></svg>
             <span>Upwork:</span>
             <a
@@ -557,10 +568,10 @@
           </span>
         </p>
         
-        <p class="flex items-center gap-2 text-2xl">
+        <p class="flex flex-wrap items-center gap-2 text-lg sm:text-2xl">
           <svg class="h-6 w-6" aria-hidden="true"><use href="#icon-document"></use></svg>
           <span>Resume:</span>
-          <a href="files/Manto_Joshua_Resume.pdf" download><button class="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">DOWNLOAD</button></a>
+          <a href="files/Manto_Joshua_Resume.pdf" download class="inline-block rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">DOWNLOAD</a>
         </p>
       </div>
     </div>
