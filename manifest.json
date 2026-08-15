@@ -1,10 +1,13 @@
 {
-    "name": "Joshua's Portfolio",
-    "short_name": "Joshua's Portfolio",
+    "name": "Joshua Manto Portfolio",
+    "short_name": "Joshua Manto",
+    "description": "Joshua Manto's software development and quality assurance portfolio.",
     "start_url": "/",
+    "scope": "/",
+    "id": "/",
     "display": "standalone",
-    "background_color": "#fff",
-    "theme_color": "#fff",
+    "background_color": "#020617",
+    "theme_color": "#020617",
     "icons": [
         {
             "src": "images/Joshua_Manto_192x192.png",
